@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamentos para a TV</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f0ff;
+            color: #333;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #003366;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #003366;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Gestão de Salas</h1>
+
+<table id="schedules-list">
+    <thead>
+        <tr>
+            <th>Nome da Sala</th>
+            <th>Nome do Instrutor</th>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Os agendamentos serão inseridos aqui -->
+    </tbody>
+</table>
+
+<script>
+    function displaySchedules() {
+        const schedulesList = document.getElementById('schedules-list').getElementsByTagName('tbody')[0];
+        schedulesList.innerHTML = '';
+        const existingSchedules = JSON.parse(localStorage.getItem('schedules')) || [];
+
+        existingSchedules.forEach(schedule => {
+            const row = schedulesList.insertRow();
+            row.innerHTML = `
+                <td>${schedule.roomName}</td>
+                <td>${schedule.instructorName}</td>
+                <td>${schedule.notes || 'Sem descrição'}</td> <!-- Mudança aqui -->
+            `;
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", displaySchedules);
+</script>
+
+</body>
+</html>

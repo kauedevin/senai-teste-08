@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suporte - Gestão de Salas</title>
+  <style>
+    /* Estilo da página "Suporte" */
+    body { font-family: Arial, sans-serif; background-color: #f4f7fa; color: #333; margin: 0; padding: 0; }
+    .header { text-align: center; padding: 20px; background-color: #003366; color: white; }
+    .header h1 { margin: 0; font-size: 28px; letter-spacing: 1px; }
+
+    .container { padding: 20px; max-width: 600px; margin: auto; }
+    .form-group { margin-bottom: 15px; }
+    label { font-weight: bold; }
+    input, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+    .button { background-color: #003366; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+    .button:hover { background-color: #0055a5; }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Suporte</h1>
+</div>
+
+<div class="container">
+  <h2>Reporte um Problema</h2>
+  <form id="support-form" action="https://formspree.io/f/xeoqoboy" method="POST">
+    <div class="form-group">
+      <label for="issue-description">Descreva o problema:</label>
+      <textarea id="issue-description" name="issue-description" rows="5" placeholder="Explique o problema que você está enfrentando..." required></textarea>
+    </div>
+    <button type="submit" class="button">Enviar</button>
+  </form>
+</div>
+
+</body>
+</html>
